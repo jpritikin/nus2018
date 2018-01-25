@@ -1,0 +1,76 @@
+---
+title: "Why open science?"
+output: beamer_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Reproducible results
+
+You address an **important** topic in your publish manuscript.
+
+Suppose somebody wants to **verify** the analysis.
+
+How can you make this **easy**?
+
+## Two components
+
+Your manuscript depends on
+
+- Statistical analysis software (SPSS, R, etc)
+- Data and specifically how you analyzed these data
+
+## Two components
+
+Your manuscript depends on
+
+- **Statistical analysis software (SPSS, R, etc)**
+- Data and specifically how you analyzed these data
+
+## Statistical analysis sofware
+
+Suppose you use SPSS (a proprietary software)
+
+>- Software costs money
+>- In 10 years, the old version you used may not be available
+>- Worse, SPSS could be discontinued by the publisher
+
+## Open source software
+
+In contrast R,
+
+>- Is free
+>- Old versions are preserved
+>- Will be available indefinitely
+
+## Two components
+
+Your manuscript depends on
+
+- Statistical analysis software (SPSS, R, etc)
+- **Data and specifically how you analyzed these data**
+
+## Cut & paste
+
+Results can be copied from a statistical report and paste into
+the manuscript copy.
+
+>- Tedious
+>- Error prone
+>- Process is not documented and hard to verify
+
+## Reproducible analyses
+
+Final text is produced automatically with
+statistical results directly integrated into
+the text.
+
+Tables and graphs are similarly automatically
+produced.
+
+>- Tedious to set up but
+>- Process is documented
+>- Analyses can be easily verified by peers
+

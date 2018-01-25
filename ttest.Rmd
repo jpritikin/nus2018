@@ -1,0 +1,85 @@
+---
+title: "t test between two samples"
+output:
+  html_document:
+    df_print: paged
+---
+
+Since we didn't collect real data, let us create some normally
+distributed data here. You could replace this section with
+some code to read in data from an experiment.
+
+```{r}
+options(digits=2, scipen=1)
+
+g1 <- rnorm(24, mean=0, sd=.7)
+g2 <- rnorm(30, mean=.5, sd=1.2)
+```
+
+Now that we have some data,
+we can plot it.
+
+```{r}
+library(ggplot2)
+
+# ggplot prefers to have all the data in a single data.frame
+df <- rbind(data.frame(g=1, x=g1),
+            data.frame(g=2, x=g2))
+
+# these are really group labels, not numbers
+df$g <- factor(df$g)
+
+ggplot(df) + geom_histogram(aes(x=x, fill=g), binwidth=.1)
+```
+
+What does a t-test say?
+
+```{r}
+out <- t.test(g1,g2)
+```
+
+An independent-samples t-test was conducted to compare
+the means of Group 1 and Group 2.
+A significant difference in scores were found between
+Group 1 (_M_=`r mean(g1)`, _SD_=`r sd(g1)`) and
+Group 2 (INSERT CODE), t(`r out$parameter`)=`r out$p.value`.
+
+OR
+
+No significant difference in scores could be found between
+Group 1 (_M_=`r mean(g1)`, _SD_=`r sd(g1)`) and
+Group 2 (INSERT CODE), t(`r out$parameter`)=`r out$p.value`.
+
+## Retrospective
+
+Fill in the summary statistics for Group 2.
+
+Did you get the same results as your neighbor? Why not?
+
+What other goodies are in the t.test output?
+
+What does the 'factor' function do?
+
+What does the 'rbind' function do?
+
+What happens if we increase the sample size?
+
+### The for loop
+
+```{r}
+for (i in c(10,12,456)) cat ("The square of",i,"is",i^2,"\n")
+for (i in 1:5) cat ("The square of",i,"is",i^2,"\n")
+```
+
+Experiment: Change the function (i^2) to something else.
+
+### The while loop
+
+```{r}
+i <- 2
+while (i^20 >= exp(i)) i <- i + 1
+i
+```
+
+Experiment: Print the expressions i^20 and exp(i)
+at every iteration of the while loop.

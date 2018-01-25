@@ -1,0 +1,27 @@
+---
+title: "regression"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Linear models are often specified with Wilkinson-Rogers
+notation. You can find an online reference  [here](http://jerous.org/att/2016/05/11/wilkinson-rogers/wilkinson2formula.html). Let's try to predict a car's mpg using the mtcars dataset.
+
+```{r}
+m1 <- lm(mpg ~ hp, data=mtcars)
+summary(m1)
+m2 <- lm(mpg ~ hp + wt, data=mtcars)
+anova(m2,m1)
+```
+
+Create comparison models that add predictors 1-by-1 until
+you include all the columns in the mtcars data frame.
+Add 2 way interactions. Use anova to compare models.
+
+## Retrospective
+
+What does knitr::opts_chunk$set(echo = TRUE) do? What happens
+when echo is set to FALSE?

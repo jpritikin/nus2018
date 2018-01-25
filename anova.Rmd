@@ -1,0 +1,91 @@
+---
+title: "Between subjects ANOVA"
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r}
+
+df <- rbind(
+  data.frame(g=1, x=rchisq(30, 1)),
+  data.frame(g=2, x=rchisq(30, 2)),
+  data.frame(g=3, x=rchisq(30, 5, ncp=3)))
+
+df$g <- factor(df$g)
+
+m1 <- aov(x~g, data=df)
+a1 <- anova(m1)
+```
+
+There was a significant (not a significant) effect of Group on dependent variable X at the p<.05 level for the
+three conditions, F(a,b)=s, p=`r a1[['Pr(>F)']][1]`.
+
+```{r}
+t1 <- TukeyHSD(m1, "g")
+```
+
+Post hoc comparisons using the Tukey HSD test indicated
+that the mean score for Group 1 (_M_ = XX, _SD_ = XX) was significantly different from Group 3 (_M_ = XX, _SD_ = XX).
+However, Group 1  (_M_ = XX, _SD_ = XX) did not significantly differ from Group 2.
+
+Visit [ggplot2 documentation](http://ggplot2.org/) and make
+a simple plot to illustrate your anova results. TODO
+
+## Retrospective
+
+Why are so many digits printed, way beyond 2 significant digits?
+
+Use kable to format the ANOVA table
+
+What is the difference between the $ list accessor and the [[]] list accessor? (See below)
+
+## More about vectors
+
+```{r}
+v <- c(9,10,3)
+names(v) <- c("abc","def","xyz")
+v
+v[c(1,3)]
+```
+
+You can also index with a vector of negative numbers. This gets you all elements except those whose indexes are in the index vector (negated):
+
+```{r}
+v[-2]
+v[c(-1,-length(v))]
+```
+
+### Difference Between [ ] and [[ ]]
+
+```{r}
+v[2]
+v[[2]]
+```
+
+The two ways of indexing also exhibit different behavior when used with lists.
+
+```{r}
+L <- list (a="xy", b=9, c=TRUE)
+L[2] # Notice that the result is still a list
+L[[2]] # ... but this is an element of the list
+```
+
+A subscript can also be a logical vector, which selects elements in positions where this subscript is TRUE
+
+```{r}
+v[c(TRUE,FALSE,TRUE)]
+v[v>5]
+v[v>5 & v<10]
+v[v>9 | v<7]
+```
+
+### Stopping R From Dropping Dimensions
+
+```{r}
+M <- matrix(1:6,nrow=2,ncol=3)
+M
+M[,2:ncol(M)]
+M[2:nrow(M),]
+M[2:nrow(M),,drop=FALSE]
+```

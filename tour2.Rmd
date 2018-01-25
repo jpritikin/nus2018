@@ -1,0 +1,79 @@
+---
+title: "R Notebook"
+output:
+  html_document:
+    df_print: paged
+  pdf_document: default
+---
+
+# Introduction
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code.
+
+You can also perform calcuations that are inserted directly into the
+text. For example, 524 + 302 = `r 524 + 302`. This type of document is
+comfortable for writing a Results section. The advantage is that if
+any error is corrected in collected data (perhaps a coding error)
+then the downstream analyses can be automatically updated!
+
+This is also a good format in which to plan specific analyses
+prior to data collection for a pre-registered study.
+
+# Iris
+
+```{r}
+options(digits=2, scipen=1)
+data(iris)
+```
+
+The correlation between sepal length and width
+is `r cor(iris$Sepal.Length, iris$Sepal.Width)`.
+
+The correlation between sepal and petal length
+is INSERT HERE.
+
+Let us examine the distribution of petal length.
+
+```{r}
+hist(iris$Petal.Length)
+```
+
+It is also fascinating to examine the distribution of sepal length.
+
+```{r}
+# INSERT CODE HERE
+```
+
+The pairs plot shows all bivariate scatterplots.
+
+```{r}
+pairs(iris[,-5])
+```
+
+Let us look at the covariance matrix of the continuous
+variables.
+
+```{r echo=FALSE, results='asis'}
+library(knitr)
+library(kableExtra)
+cov(iris[,-5]) %>% kable()
+```
+
+For ordinal data, ample tools are available such as
+Cronbach's alpha and Guttman's Lambda 6.
+
+```{r}
+library(psych)
+r4 <- sim.congeneric()
+alpha(r4)
+```
+
+## Retrospective
+
+Change the original mathematical expression 524 + 302 to
+something else? What happens?
+
+What do the parameters in the 'options' line do?
+
+Knit to HTML, PDF, and Word. Which format is most useful
+for your manuscripts?
