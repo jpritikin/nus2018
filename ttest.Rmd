@@ -64,6 +64,8 @@ What does the 'rbind' function do?
 
 What happens if we increase the sample size?
 
+Perform a paired t.test on data in sleep.csv
+
 ### The for loop
 
 ```{r}

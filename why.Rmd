@@ -74,3 +74,14 @@ produced.
 >- Process is documented
 >- Analyses can be easily verified by peers
 
+## How to learn?
+
+You're convinced. Now what?
+
+>- Learn by doing
+>- Grasp the fundamentals for long-term benefits
+>- Ask for help
+>- Seek out online resources
+>- Don’t just read sample code. Tinker with it!
+>- Expect to fail repeatedly
+>- Be patient with your progress

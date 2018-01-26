@@ -73,3 +73,6 @@ head(bf)
 # Is there another way? Check documentation
 ?read.spss
 #CODE
+
+# What about other packages? Is there a package list?
+# What is your favorite package?

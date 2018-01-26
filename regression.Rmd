@@ -25,3 +25,5 @@ Add 2 way interactions. Use anova to compare models.
 
 What does knitr::opts_chunk$set(echo = TRUE) do? What happens
 when echo is set to FALSE?
+
+What happens when you plot a regression result object?
